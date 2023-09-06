@@ -19,21 +19,17 @@ def convert(fromUnit, toUnit, value):
         ("yards", "meters"): lambda x: x * 0.9144,
         ("meters", "yards"): lambda x: x / 0.9144
     }
-
+    conversion_function = conversion_functions.get((fromUnit, toUnit))
   
     if fromUnit == toUnit:
-        return value  # No conversion needed, return the same value
+        print("!!!!! Same Unit Detected !!!!")
+        return value  
+    if conversion_function==None:
+        print ("No conversion can be done")
+        return 0
 
-    #find the appropriate conversion function  by KEY (from,to)
-    conversion_function = conversion_functions.get((fromUnit, toUnit))
-
-
-    # Check if the conversion is not possible
-    if conversion_function is None:
-        raise ConversionNotPossible(f"Conversion from {fromUnit} to {toUnit} is not possible")
-
-    try:
+   
+    else:
         result = conversion_function(value)
-        return round(result, 2)
-    except Exception as e:
-        raise ConversionNotPossible(f"Error during conversion: {e}")
+        return result
+

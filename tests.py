@@ -25,6 +25,29 @@ class KnownValues(unittest.TestCase):
                        )
 
 
+    knownvaluesDis = (     #miles,meters,yards
+      
+                              
+                    (0.25 ,402.34,440.00) ,
+                    (0.35,563.27,616.00),
+                    (0.5,804.68 ,880.00) ,
+                    (0.75,1207.02,1320.00) ,  
+                    (1.0,1609.34 , 1760.00), 
+                    (1.25,2011.68,2200.00),  
+                    (2.5,4023.35,4400.00), 
+                    (2.75,4425.42,4840.00), 
+                    (4.0 ,6437.36,7040.00), 
+                    (3.0,4828.03, 5280.00)
+                 
+                   
+
+
+      
+      
+      )
+
+
+
 
     #tests the Celsius to Fahrenheit conversion using 
     def testConversionCelsiusToKelvin(self):

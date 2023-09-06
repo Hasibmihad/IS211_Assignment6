@@ -24,12 +24,12 @@ def convert(fromUnit, toUnit, value):
     if fromUnit == toUnit:
         print("!!!!! Same Unit Detected !!!!")
         return value  
-    if conversion_function==None:
-        print ("No conversion can be done")
-        return 0
+    if conversion_function is None:
+        raise ConversionNotPossible(f"Conversion from {fromUnit} to {toUnit} is not possible")
 
-   
-    else:
+    try:
+        # Perform the conversion and round the result to 2 decimal places
         result = conversion_function(value)
         return result
-
+    except Exception as e:
+        raise ConversionNotPossible(f"Error during conversion: {e}")

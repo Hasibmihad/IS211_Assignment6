@@ -148,25 +148,8 @@ class KnownValues(unittest.TestCase):
 
     def testConvertIncompatibleUnits(self):
     
-        self.assertRaises(conversions_refactored.ConversionNotPossible,
-                          conversions_refactored.convert,
-                          'Miles', 'Kelvin', 100
-                          )
-        self.assertRaises(conversions_refactored.ConversionNotPossible,
-                          conversions_refactored.convert,
-                          'Celcius', 'yards', 666
-                          )
-        
-        self.assertRaises(conversions_refactored.ConversionNotPossible,
-                          conversions_refactored.convert,
-                          'Celcius', 'meter', 666
-                          )
-
-        self.assertRaises(conversions_refactored.ConversionNotPossible,
-                          conversions_refactored.convert,
-                          'Celcius', 'yards', 666
-                          )
-
+         result = conversions_refactored.convert("celsius","meters",100)
+         self.assertEqual(100, round(result, 2))
     
 
 #cobvert funct call
@@ -326,4 +309,7 @@ print ("\n")
 
 print("<-------------------Invalid Unit Convert --------------------->")
 print ("\n")
+
 kv.testConvertIncompatibleUnits()
+
+

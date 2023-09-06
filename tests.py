@@ -169,12 +169,12 @@ class KnownValues(unittest.TestCase):
 
     
 
-
+#cobvert funct call
 
     def testConvertCelsiusToKelvin(self):
         for celsius, fahrenheit, kelvin in self.knownvalues:
             print(f'Validating {celsius} degrees Celsius to {kelvin} Kelvin Conversion') 
-            result = conversions_refactored.convert(celsius)
+            result = conversions_refactored.convert("celsius","kelvin",celsius)
             self.assertEqual(kelvin, round(result, 2))
      
 
@@ -183,7 +183,7 @@ class KnownValues(unittest.TestCase):
     def testConvertCelsiusToFahrenheit(self):
          for celsius, fahrenheit, kelvin in self.knownvalues:
                 print(f'Validating {celsius} degrees Celsius to {fahrenheit} degrees Fahrenheit Conversion') 
-                result = conversions_refactored.convert(celsius)
+                result = conversions_refactored.convert("celsius","fahrenheit",celsius)
                 self.assertEqual(fahrenheit, round(result, 2))
 
 
@@ -192,7 +192,7 @@ class KnownValues(unittest.TestCase):
     def testConvertFahrenheitToCelsius(self):
          for celsius, fahrenheit, kelvin in self.knownvalues:
                 print(f'Validating {fahrenheit} degrees Fahrenheit to {celsius} degrees Celsius Conversion') 
-                result = conversions_refactored.convert(fahrenheit)
+                result = conversions_refactored.convert("fahrenheit","celsius",fahrenheit)
                 self.assertEqual(celsius, round(result, 2))
 
 
@@ -200,14 +200,14 @@ class KnownValues(unittest.TestCase):
     def testConvertFahrenheitToKelvin(self):
         for celsius, fahrenheit, kelvin in self.knownvalues:
             print(f'Validating {fahrenheit} degrees Fahrenheit converts to {kelvin} Kelvin Conversion') 
-            result = conversions_refactored.convert(fahrenheit)
+            result = conversions_refactored.convert("fahrenheit","kelvin",fahrenheit)
             self.assertEqual(kelvin, round(result, 2))
 
     #tests the Kelvin to Celsius conversion
     def testConvertKelvinToCelsius(self):
-        for celsius, fahrenheit, kelvin in self.knownvalues:
+        for  celsius, fahrenheit, kelvin in self.knownvalues:
             print(f'Validating {kelvin} Kelvin converts to {celsius} degrees Celsius Conversion') 
-            result = conversions_refactored.convert(kelvin)
+            result = conversions_refactored.convert("kelvin","celsius",kelvin)
             self.assertEqual(celsius, round(result, 2))
 
 
@@ -215,7 +215,7 @@ class KnownValues(unittest.TestCase):
     def testConvertKelvinToFahrenheit(self):
         for celsius, fahrenheit, kelvin in self.knownvalues:
             print(f'Validating {kelvin} Kelvin converts to {fahrenheit} degrees Fahrenheit Conversion') 
-            result = conversions_refactored.convert(kelvin)
+            result = conversions_refactored.convert("kelvin","fahrenheit",kelvin)
             self.assertEqual(fahrenheit, round(result, 2))
 
 
@@ -290,10 +290,20 @@ print ("\n")
 
 print("<-------------------Testing Refactored Temp Unit Convert --------------------->")
 print ("\n")
-kv.testConvertSameValue()
+kv.testConvertCelsiusToFahrenheit()
+print ("\n")
+kv.testConvertCelsiusToKelvin()
+print ("\n")
+kv.testConvertFahrenheitToCelsius()
+print ("\n")
+kv.testConvertFahrenheitToKelvin()
 print ("\n")
 
+kv.testConvertKelvinToCelsius()
+print ("\n")
 
+kv.testConvertKelvinToFahrenheit()
+print ("\n")
 
 
 print("<-------------------Testing Distance Unit Convert --------------------->")
@@ -312,8 +322,7 @@ print ("\n")
 kv.testConvertMilesToMeters()
 print ("\n")
 kv.testConvertMilesToYards()
-
-
+print ("\n")
 
 print("<-------------------Invalid Unit Convert --------------------->")
 print ("\n")

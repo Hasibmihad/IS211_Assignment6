@@ -227,7 +227,7 @@ class KnownValues(unittest.TestCase):
 
     def testConvertMilesToMeters(self):
      for miles,meters in self.miles_to_meters_samples:
-            print(f"Validating {miles} miles= '{meters} meters") 
+            print(f"Validating {miles} miles= {meters} meters") 
             result = conversions_refactored.convert('miles', 'meters', miles)
             self.assertEqual(meters, round(result, 2))
 
@@ -244,72 +244,74 @@ class KnownValues(unittest.TestCase):
             self.assertEqual(meters, round(result, 2)) 
         
 
+def main():
+
+    kv=KnownValues()
+    print("<-------------------Testing On Known Value --------------------->")
+    print ("\n")
+    print("<-------------------Testing Kelvin to --------------------->")
+    print ("\n")
+    kv.testConversionKelvinToFahrenheit()
+    kv.testConversionKelvinToCelsius()
+    print ("\n")
+
+    print("<-------------------Testing Celsius to --------------------->")
+    print ("\n")
+    kv.testConversionCelsiusToFahrenheit
+    kv.testConversionCelsiusToKelvin()
+    print ("\n")
+    print("<-------------------Testing Farhenheit to --------------------->")
+    print ("\n")
+    kv.testConversionFahrenheitToCelsius()
+    kv.testConversionFahrenheitToKelvin()
+    print ("\n")
+
+    print("<-------------------Testing Same Unit Convert --------------------->")
+    print ("\n")
+    kv.testConvertSameValue()
+    print ("\n")
+
+    print("<-------------------Testing Refactored Temp Unit Convert --------------------->")
+    print ("\n")
+    kv.testConvertCelsiusToFahrenheit()
+    print ("\n")
+    kv.testConvertCelsiusToKelvin()
+    print ("\n")
+    kv.testConvertFahrenheitToCelsius()
+    print ("\n")
+    kv.testConvertFahrenheitToKelvin()
+    print ("\n")
+
+    kv.testConvertKelvinToCelsius()
+    print ("\n")
+
+    kv.testConvertKelvinToFahrenheit()
+    print ("\n")
 
 
-kv=KnownValues()
-print("<-------------------Testing On Known Value --------------------->")
-print ("\n")
-print("<-------------------Testing Kelvin to --------------------->")
-print ("\n")
-kv.testConversionKelvinToFahrenheit()
-kv.testConversionKelvinToCelsius()
-print ("\n")
+    print("<-------------------Testing Distance Unit Convert --------------------->")
+    print ("\n")
+    kv.testConvertYardsToMeters()
+    print ("\n")
+    kv.testConvertYardsToMiles()
+    print ("\n")
 
-print("<-------------------Testing Celsius to --------------------->")
-print ("\n")
-kv.testConversionCelsiusToFahrenheit
-kv.testConversionCelsiusToKelvin()
-print ("\n")
-print("<-------------------Testing Farhenheit to --------------------->")
-print ("\n")
-kv.testConversionFahrenheitToCelsius()
-kv.testConversionFahrenheitToKelvin()
-print ("\n")
-
-print("<-------------------Testing Same Unit Convert --------------------->")
-print ("\n")
-kv.testConvertSameValue()
-print ("\n")
-
-print("<-------------------Testing Refactored Temp Unit Convert --------------------->")
-print ("\n")
-kv.testConvertCelsiusToFahrenheit()
-print ("\n")
-kv.testConvertCelsiusToKelvin()
-print ("\n")
-kv.testConvertFahrenheitToCelsius()
-print ("\n")
-kv.testConvertFahrenheitToKelvin()
-print ("\n")
-
-kv.testConvertKelvinToCelsius()
-print ("\n")
-
-kv.testConvertKelvinToFahrenheit()
-print ("\n")
+    kv.testConvertMetersToMiles()
+    print ("\n")
+    kv.testConvertMetersToYards()
+    print ("\n")
 
 
-print("<-------------------Testing Distance Unit Convert --------------------->")
-print ("\n")
-kv.testConvertYardsToMeters()
-print ("\n")
-kv.testConvertYardsToMiles()
-print ("\n")
+    kv.testConvertMilesToMeters()
+    print ("\n")
+    kv.testConvertMilesToYards()
+    print ("\n")
 
-kv.testConvertMetersToMiles()
-print ("\n")
-kv.testConvertMetersToYards()
-print ("\n")
+    print("<-------------------Invalid Unit Convert --------------------->")
+    print ("\n")
+
+    kv.testConvertIncompatibleUnits()
 
 
-kv.testConvertMilesToMeters()
-print ("\n")
-kv.testConvertMilesToYards()
-print ("\n")
-
-print("<-------------------Invalid Unit Convert --------------------->")
-print ("\n")
-
-kv.testConvertIncompatibleUnits()
-
-
+if __name__=="__main__":
+    main()

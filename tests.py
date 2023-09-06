@@ -77,4 +77,24 @@ class KnownValues(unittest.TestCase):
 
 
 kv=KnownValues()
+print("<-------------------Testing On Known Value --------------------->")
+print ("\n")
+print("<-------------------Testing Kelvin to --------------------->")
+print ("\n")
 kv.testConversionKelvinToFahrenheit()
+kv.testConversionKelvinToCelsius()
+print ("\n")
+
+print("<-------------------Testing Celsius to --------------------->")
+print ("\n")
+kv.testConversionCelsiusToFahrenheit
+kv.testConversionCelsiusToKelvin()
+print ("\n")
+print("<-------------------Testing Farhenheit to --------------------->")
+print ("\n")
+kv.testConversionFahrenheitToCelsius()
+kv.testConversionFahrenheitToKelvin()
+print ("\n")
+
+
+
